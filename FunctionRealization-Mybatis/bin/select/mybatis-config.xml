@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- JDBC연결 정보 -->
+  <properties resource="select/jdbc.properties"></properties>
+  <!-- select.Board의 별명 Board로 지정(긴 패지명을 지정하기 번거로우므로) -->
+  <typeAliases>
+  <typeAlias type="select.Board" alias="Board"/>
+  </typeAliases>
+  
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <!-- sql문을 저장하고 있는 보관소 -->
+  <mappers>
+    <mapper resource="select/BoardMapper.xml"/>
+  </mappers>
+</configuration>
