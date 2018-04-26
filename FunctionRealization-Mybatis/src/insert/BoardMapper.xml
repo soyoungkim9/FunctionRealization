@@ -12,7 +12,7 @@
    <result column="cdt" property="registeredDate"/>
    </resultMap>
 
-  <insert id="insertBoard" resultMap="BoardMap" parameterType="map">
+  <insert id="insertBoard" parameterType="map">
     insert into ex_board(titl,cont,cdt)
     values(#{title},#{content},now())
   </insert>
